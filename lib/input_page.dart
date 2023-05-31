@@ -5,6 +5,12 @@ import 'icon_content.dart';
 
 const bottomContainerColor = Color(0xFFEB1555);
 const activeCardColor = Color(0xFF111428);
+const inactiveCardColor = Color(0x00111428);
+
+enum Gender {
+  male,
+  female,
+}
 
 class InputPage extends StatefulWidget {
   @override
@@ -12,6 +18,21 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
+  void genderSelected(Gender selectedGender) {
+    setState(() {
+      if (selectedGender == Gender.male) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      } else {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +46,10 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   CustomContainer(
                     onPressed: () {
+                      genderSelected(Gender.male);
                       print('male selected');
                     },
-                    color: activeCardColor,
+                    color: maleCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.mars,
                       label: 'MALE',
@@ -35,9 +57,10 @@ class _InputPageState extends State<InputPage> {
                   ),
                   CustomContainer(
                     onPressed: () {
+                      genderSelected(Gender.female);
                       print('female selected');
                     },
-                    color: activeCardColor,
+                    color: femaleCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.venus,
                       label: 'FEMALE',
