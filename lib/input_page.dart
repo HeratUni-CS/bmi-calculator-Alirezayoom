@@ -18,20 +18,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
-
-  void genderSelected(Gender selectedGender) {
-    setState(() {
-      if (selectedGender == Gender.male) {
-        maleCardColor = activeCardColor;
-        femaleCardColor = inactiveCardColor;
-      } else {
-        femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor;
-      }
-    });
-  }
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +33,13 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   CustomContainer(
                     onPressed: () {
-                      genderSelected(Gender.male);
-                      print('male selected');
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
                     },
-                    color: maleCardColor,
+                    color: (selectedGender == Gender.male
+                        ? activeCardColor
+                        : inactiveCardColor),
                     child: IconContent(
                       iconData: FontAwesomeIcons.mars,
                       label: 'MALE',
@@ -57,10 +47,13 @@ class _InputPageState extends State<InputPage> {
                   ),
                   CustomContainer(
                     onPressed: () {
-                      genderSelected(Gender.female);
-                      print('female selected');
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
                     },
-                    color: femaleCardColor,
+                    color: (selectedGender == Gender.female
+                        ? activeCardColor
+                        : inactiveCardColor),
                     child: IconContent(
                       iconData: FontAwesomeIcons.venus,
                       label: 'FEMALE',
