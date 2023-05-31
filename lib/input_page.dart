@@ -17,17 +17,27 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: Row(
                 children: [
-                  CustomContainer(),
-                  CustomContainer(),
+                  CustomContainer(
+                    color: Color(0xFF111428),
+                  ),
+                  CustomContainer(
+                    color: Color(0xFF111428),
+                  ),
                 ],
               ),
             ),
-            CustomContainer(),
+            CustomContainer(
+              color: Color(0xFF111428),
+            ),
             Expanded(
               child: Row(
                 children: [
-                  CustomContainer(),
-                  CustomContainer(),
+                  CustomContainer(
+                    color: Color(0xFF111428),
+                  ),
+                  CustomContainer(
+                    color: Color(0xFF111428),
+                  ),
                 ],
               ),
             )
@@ -37,6 +47,10 @@ class _InputPageState extends State<InputPage> {
 }
 
 class CustomContainer extends StatelessWidget {
+  CustomContainer({required this.color});
+
+  Color color;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -44,7 +58,7 @@ class CustomContainer extends StatelessWidget {
         margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: Color(0xFF111428),
+          color: color,
         ),
       ),
     );
