@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'custom_container.dart';
+import 'icon_content.dart';
 
 const bottomContainerColor = Color(0xFFEB1555);
 const activeCardColor = Color(0xFF111428);
@@ -60,58 +62,5 @@ class _InputPageState extends State<InputPage> {
             )
           ],
         ));
-  }
-}
-
-class CustomContainer extends StatelessWidget {
-  CustomContainer({required this.color, this.child});
-
-  final Color color;
-  final Widget? child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: color,
-        ),
-        child: child,
-      ),
-    );
-  }
-}
-
-class IconContent extends StatelessWidget {
-  final IconData iconData;
-  final String label;
-
-  IconContent({required this.iconData, required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(
-          iconData,
-          size: 72,
-          color: Color(0xFF868892),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 20,
-            color: Color(0xFF868892),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
-      mainAxisAlignment: MainAxisAlignment.center,
-    );
   }
 }
