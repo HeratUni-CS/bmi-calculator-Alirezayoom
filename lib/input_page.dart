@@ -17,45 +17,40 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: Row(
                 children: [
-                  Expanded(
-                    child: Container(
-                      color: Color(0xFF111428),
-                      margin: EdgeInsets.all(15),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      color: Color(0xFF111428),
-                      margin: EdgeInsets.all(15),
-                    ),
-                  )
+                  CustomContainer(),
+                  CustomContainer(),
                 ],
               ),
             ),
+            CustomContainer(),
             Expanded(
-              child: Container(
-                color: Color(0xFF111428),
-                margin: EdgeInsets.all(15),
+              child: Row(
+                children: [
+                  CustomContainer(),
+                  CustomContainer(),
+                ],
               ),
-            ),
-            Expanded(
-                child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Color(0xFF111428),
-                    margin: EdgeInsets.all(15),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    color: Color(0xFF111428),
-                    margin: EdgeInsets.all(15),
-                  ),
-                )
-              ],
-            ))
+            )
           ],
         ));
+  }
+}
+
+class CustomContainer extends StatelessWidget {
+  const CustomContainer({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Color(0xFF111428),
+        ),
+      ),
+    );
   }
 }
