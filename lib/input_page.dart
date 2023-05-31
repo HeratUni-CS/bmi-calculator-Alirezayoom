@@ -24,6 +24,9 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   CustomContainer(
+                    onPressed: () {
+                      print('male selected');
+                    },
                     color: activeCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.mars,
@@ -31,6 +34,9 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                   CustomContainer(
+                    onPressed: () {
+                      print('female selected');
+                    },
                     color: activeCardColor,
                     child: IconContent(
                       iconData: FontAwesomeIcons.venus,
