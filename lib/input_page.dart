@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottomContainerColor = Color(0xFFEB1555);
 const activeCardColor = Color(0xFF111428);
@@ -22,9 +23,17 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   CustomContainer(
                     color: activeCardColor,
+                    child: IconContent(
+                      iconData: FontAwesomeIcons.mars,
+                      label: 'MALE',
+                    ),
                   ),
                   CustomContainer(
                     color: activeCardColor,
+                    child: IconContent(
+                      iconData: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
+                    ),
                   ),
                 ],
               ),
@@ -55,9 +64,10 @@ class _InputPageState extends State<InputPage> {
 }
 
 class CustomContainer extends StatelessWidget {
-  CustomContainer({required this.color});
+  CustomContainer({required this.color, this.child});
 
-  Color color;
+  final Color color;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +78,40 @@ class CustomContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           color: color,
         ),
+        child: child,
       ),
+    );
+  }
+}
+
+class IconContent extends StatelessWidget {
+  final IconData iconData;
+  final String label;
+
+  IconContent({required this.iconData, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Icon(
+          iconData,
+          size: 72,
+          color: Color(0xFF868892),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 20,
+            color: Color(0xFF868892),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+      mainAxisAlignment: MainAxisAlignment.center,
     );
   }
 }
