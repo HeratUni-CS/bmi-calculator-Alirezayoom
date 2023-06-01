@@ -11,6 +11,7 @@ enum Gender {
 
 int height = 175;
 int weight = 70;
+int age = 20;
 
 class InputPage extends StatefulWidget {
   @override
@@ -153,8 +154,44 @@ class _InputPageState extends State<InputPage> {
                         ],
                       )),
                   CustomContainer(
-                    color: kActiveCardColor,
-                  ),
+                      color: kActiveCardColor,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'AGE',
+                            style: kLabelStyle,
+                          ),
+                          Text(
+                            age.toString(),
+                            style: kNumberStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                iconData: Icons.remove,
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              RoundIconButton(
+                                iconData: Icons.add,
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      )),
                 ],
               ),
             ),
