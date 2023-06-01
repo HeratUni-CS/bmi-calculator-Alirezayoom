@@ -9,6 +9,8 @@ enum Gender {
   female,
 }
 
+int height = 175;
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -74,7 +76,7 @@ class _InputPageState extends State<InputPage> {
                       textBaseline: TextBaseline.alphabetic,
                       children: [
                         Text(
-                          '199',
+                          height.toString(),
                           style: kNumberStyle,
                         ),
                         Text(
@@ -82,7 +84,16 @@ class _InputPageState extends State<InputPage> {
                           style: kLabelStyle,
                         )
                       ],
-                    )
+                    ),
+                    Slider(
+                        value: height.toDouble(),
+                        onChanged: (double value) {
+                          setState(() {
+                            height = value.round();
+                          });
+                        },
+                        min: 120,
+                        max: 220),
                   ],
                 )),
             Expanded(
