@@ -67,6 +67,21 @@ class _InputPageState extends State<InputPage> {
                     Text(
                       'HEIGHT',
                       style: kLabelStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          '199',
+                          style: kNumberStyle,
+                        ),
+                        Text(
+                          'cm',
+                          style: kLabelStyle,
+                        )
+                      ],
                     )
                   ],
                 )),
