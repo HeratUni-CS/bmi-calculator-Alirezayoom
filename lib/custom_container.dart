@@ -13,6 +13,7 @@ class CustomContainer extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         child: Container(
+          width: double.infinity,
           margin: EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),

@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'custom_container.dart';
 import 'icon_content.dart';
-
-const bottomContainerColor = Color(0xFFEB1555);
-const activeCardColor = Color(0xFF111428);
-const inactiveCardColor = Color(0x00111428);
+import 'constants.dart';
 
 enum Gender {
   male,
@@ -38,8 +35,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: (selectedGender == Gender.male
-                        ? activeCardColor
-                        : inactiveCardColor),
+                        ? kActiveCardColor
+                        : kInactiveCardColor),
                     child: IconContent(
                       iconData: FontAwesomeIcons.mars,
                       label: 'MALE',
@@ -52,8 +49,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     color: (selectedGender == Gender.female
-                        ? activeCardColor
-                        : inactiveCardColor),
+                        ? kActiveCardColor
+                        : kInactiveCardColor),
                     child: IconContent(
                       iconData: FontAwesomeIcons.venus,
                       label: 'FEMALE',
@@ -63,23 +60,25 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             CustomContainer(
-              color: activeCardColor,
-            ),
+                color: kActiveCardColor,
+                child: Column(
+                  children: [Text('hiss')],
+                )),
             Expanded(
               child: Row(
                 children: [
                   CustomContainer(
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                   ),
                   CustomContainer(
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                   ),
                 ],
               ),
             ),
             Container(
               height: 70,
-              color: bottomContainerColor,
+              color: kBottomContainerColor,
               margin: EdgeInsets.only(top: 10),
             )
           ],
