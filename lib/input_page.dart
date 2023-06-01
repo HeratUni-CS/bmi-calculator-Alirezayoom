@@ -62,7 +62,13 @@ class _InputPageState extends State<InputPage> {
             CustomContainer(
                 color: kActiveCardColor,
                 child: Column(
-                  children: [Text('hiss')],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'HEIGHT',
+                      style: kLabelStyle,
+                    )
+                  ],
                 )),
             Expanded(
               child: Row(
