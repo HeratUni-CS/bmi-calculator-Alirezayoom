@@ -10,6 +10,7 @@ enum Gender {
 }
 
 int height = 175;
+int weight = 70;
 
 class InputPage extends StatefulWidget {
   @override
@@ -113,8 +114,44 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   CustomContainer(
-                    color: kActiveCardColor,
-                  ),
+                      color: kActiveCardColor,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'WEIGHT',
+                            style: kLabelStyle,
+                          ),
+                          Text(
+                            weight.toString(),
+                            style: kNumberStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                iconData: Icons.remove,
+                                onPressed: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              RoundIconButton(
+                                iconData: Icons.add,
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      )),
                   CustomContainer(
                     color: kActiveCardColor,
                   ),
@@ -128,5 +165,29 @@ class _InputPageState extends State<InputPage> {
             )
           ],
         ));
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  final IconData iconData;
+  final void Function() onPressed;
+
+  RoundIconButton({required this.iconData, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressed,
+      fillColor: const Color(0xFF1C1F32),
+      shape: const CircleBorder(),
+      constraints: const BoxConstraints.tightFor(
+        width: 56,
+        height: 56,
+      ),
+      child: Icon(
+        iconData,
+        size: 30,
+      ),
+    );
   }
 }
