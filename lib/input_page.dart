@@ -196,9 +196,16 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             Container(
+              width: double.infinity,
               height: 70,
               color: kBottomContainerColor,
-              margin: EdgeInsets.only(top: 10),
+              margin: const EdgeInsets.only(top: 10),
+              child: const Center(
+                child: Text(
+                  "CALCULATE YOUR BMI",
+                  style: kLargeButtonStyle,
+                ),
+              ),
             )
           ],
         ));
