@@ -5,6 +5,7 @@ import 'icon_content.dart';
 import 'constants.dart';
 import 'result_page.dart';
 import 'bottom_button.dart';
+import 'round_icon_button.dart';
 
 enum Gender {
   male,
@@ -210,29 +211,5 @@ class _InputPageState extends State<InputPage> {
             ),
           ],
         ));
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  final IconData iconData;
-  final void Function() onPressed;
-
-  RoundIconButton({required this.iconData, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      fillColor: const Color(0xFF1C1F32),
-      shape: const CircleBorder(),
-      constraints: const BoxConstraints.tightFor(
-        width: 56,
-        height: 56,
-      ),
-      child: Icon(
-        iconData,
-        size: 30,
-      ),
-    );
   }
 }
