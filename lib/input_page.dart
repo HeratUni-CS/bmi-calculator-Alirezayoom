@@ -4,6 +4,7 @@ import 'custom_container.dart';
 import 'icon_content.dart';
 import 'constants.dart';
 import 'result_page.dart';
+import 'bottom_button.dart';
 
 enum Gender {
   male,
@@ -196,8 +197,8 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            InkWell(
-              onTap: () {
+            BottomButton(
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
@@ -205,19 +206,8 @@ class _InputPageState extends State<InputPage> {
                   }),
                 );
               },
-              child: Container(
-                width: double.infinity,
-                height: 70,
-                color: kBottomContainerColor,
-                margin: const EdgeInsets.only(top: 10),
-                child: const Center(
-                  child: Text(
-                    "CALCULATE YOUR BMI",
-                    style: kLargeButtonStyle,
-                  ),
-                ),
-              ),
-            )
+              label: 'CALCULATE YOUR BMI',
+            ),
           ],
         ));
   }
