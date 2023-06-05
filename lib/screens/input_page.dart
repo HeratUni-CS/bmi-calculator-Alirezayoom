@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/bmi_brain.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/custom_container.dart';
 import '../components/icon_content.dart';
@@ -200,13 +201,14 @@ class _InputPageState extends State<InputPage> {
             ),
             BottomButton(
               onPressed: () {
+                BMIBrain bmiBrain = BMIBrain(height: height, weight: weight);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
                     return ResultPage(
-                      result: 'Normal',
-                      bmi: '24',
-                      interpretation: 'You are good to go',
+                      result: bmiBrain.getResult(),
+                      bmi: bmiBrain.getBMI(),
+                      interpretation: bmiBrain.getInterpretation(),
                     );
                   }),
                 );
