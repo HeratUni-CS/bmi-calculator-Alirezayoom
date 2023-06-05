@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'constants.dart';
 import 'custom_container.dart';
-import 'package:matcher/matcher.dart';
+import 'bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
   @override
@@ -48,7 +48,12 @@ class ResultPage extends StatelessWidget {
                     )
                   ],
                 )),
-          )
+          ),
+          BottomButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              label: 'RECALCULATE')
         ],
       ),
     );
