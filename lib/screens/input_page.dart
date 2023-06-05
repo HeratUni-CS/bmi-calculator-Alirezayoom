@@ -203,7 +203,11 @@ class _InputPageState extends State<InputPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return ResultPage();
+                    return ResultPage(
+                      result: 'Normal',
+                      bmi: '24',
+                      interpretation: 'You are good to go',
+                    );
                   }),
                 );
               },

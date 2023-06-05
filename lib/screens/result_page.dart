@@ -5,6 +5,13 @@ import '../components/custom_container.dart';
 import '../components/bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
+  String result;
+  String bmi;
+  String interpretation;
+
+  ResultPage(
+      {required this.result, required this.bmi, required this.interpretation});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,15 +41,15 @@ class ResultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'NORMAL',
+                      result,
                       style: kResultTextStyle,
                     ),
                     Text(
-                      "25",
+                      bmi,
                       style: kBMITextStyle,
                     ),
                     Text(
-                      "You are good to go",
+                      interpretation,
                       textAlign: TextAlign.center,
                       style: kBodyTextStyle,
                     )
