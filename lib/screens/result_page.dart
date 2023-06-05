@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
-import 'custom_container.dart';
-import 'bottom_button.dart';
+import '../constants.dart';
+import '../components/custom_container.dart';
+import '../components/bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
   @override
